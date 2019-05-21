@@ -1,0 +1,88 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+#container{
+    margin: 0px 0px 0px 0px;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+#menubar{
+    width: 100%;
+    height: 45px;
+    background-color: lightgray;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+#codeplayer{
+    float: left;
+    margin: 0px;
+    padding: 10px 0px 0px 10px;
+}
+#menuuldiv{
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    left: 35%;
+    /* padding-left: 500px; */
+}
+#menuul{
+    padding-left: 0px;
+    margin: 0px;
+    float: left;
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#menuul li{
+    float: left;
+    height: 19px;
+    padding: 12px 10px 12px 10px;
+    border-right: 1px solid black;
+}
+#resultbtn{
+    float: right;
+    padding-top: 5px;
+}
+#resultbtn input{
+    float: right;
+    border-radius: 10px;
+    height:35px;
+    width: 65px;
+}
+.codecontainer{
+    position: relative;
+    height: 100%;
+    width: 50%; 
+    float: left;
+}
+.codecontainer textarea{
+    background-color: midnightblue;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-right: 1px solid gray;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+.codeLabel{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: black;
+}
+#CSSCon, #JSCon{
+    display: none;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.selected{
+    background-color: gray;
+}

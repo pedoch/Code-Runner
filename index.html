@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Code Runner</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.css"/>    
+</head>
+<body>
+    <div id="container">
+        <div id="menubar">
+            <h3 id="codeplayer">Code Runner</h3>
+            <div id="menuuldiv">
+                <ul id="menuul">
+                    <li class="toggle selected" id="html">HTML</li>
+                    <li class="toggle" id="css">CSS</li>
+                    <li class="toggle" id="js">JS</li>
+                    <li class="toggle selected" id="result" style="border: none">Result</li>
+                </ul>
+            </div>
+            <div id="resultbtn">
+                <input type="button" value="Run"/>
+            </div>
+        </div>
+        <div class="codecontainer" id="HTMLCon">
+            <div class="codelabel">HTML</div>
+            <textarea id="htmlCode">Example Code</textarea>
+        </div> 
+        <div class="codecontainer" id="CSSCon">
+                <div class="codelabel">CSS</div>
+                <textarea id="cssCode">Example Code</textarea>
+        </div> 
+        <div class="codecontainer " id="JSCon">
+                <div class="codelabel">JS</div>
+                <textarea id="jsCode">Example Code</textarea>
+        </div>
+        <div class="codecontainer " id="ResultCon">
+                <div class="codelabel" style="color: black">Result</div>
+                <iframe id="resultFrame"></iframe>
+        </div>  
+    </div>
+    <script>
+        var winH = $(window).height();
+        var menubarH = $('#menubar').height();
+        var codeH = winH - menubarH;
+        $('#codecontainer').height(codeH+'px');
+        $('.toggle').click(function(){
+            $(this).toggleClass('selected');
+            var activeDiv = $(this).html();
+            $('#'+activeDiv+'Con').toggle();
+            var showDiv = $('.codecontainer').filter(function(){
+                return ($(this).css('display')!='none');
+            }).length;
+            var width = $(window).width()/showDiv;
+            $('.codecontainer').css('width',width);
+        });
+        $('#resultbtn').click(function(){
+            $('iframe').contents().find('html').html("<style>"+$('#cssCode').val()+"</style>"+$('#htmlCode').val());
+            document.getElementById('resultFrame').contentWindow.eval($('#jsCode').val());
+        });
+    </script>
+</body>
+</html>
